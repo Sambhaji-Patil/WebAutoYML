@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Workflow Installer</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/static/assets/logo.png" alt="Company Logo" class="logo-image">
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>GitHub Workflow Installer</h1>
+                <p>Install Spam Detection workflow to your GitHub repositories with one click!</p>
+                <div class="cta-button">
+                    <a href="{{ url_for('login') }}" class="github-login">
+                        <img src="/static/assets/github.svg" alt="GitHub Logo">
+                        Login with GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/static/assets/marketplace.png" alt="Securing from Spams" class="secure-image">
+            </div>
+        </div>
+        <div class="learn-more-section">
+            <a href="https://github.com/marketplace/actions/autohide-spam-comments" class="learn-more-link">
+                <span class="learn-more-text">Learn more about the Action on marketplace</span>
+                <svg class="learn-more-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+

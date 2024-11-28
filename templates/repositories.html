@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Repositories</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/static/assets/logo.png" alt="Company Logo" class="logo-image">
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Your Repositories</h1>
+        <p>Select a repository to install the Spam Detection workflow:</p>
+        <div class="repositories-grid">
+            {% for repo in repos %}
+            <div class="repository-card">
+                <h3 class="repo-name">{{ repo.name }}</h3>
+                <button onclick="addWorkflow('{{ repo.full_name }}')" class="install-button">
+                    Install Workflow
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="notification" class="notification hidden"></div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
+

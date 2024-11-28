@@ -1,0 +1,219 @@
+:root {
+    --primary-color: #2ea44f;
+    --hover-color: #2c974b;
+    --background-color: #f6f8fa;
+    --text-color: #24292e;
+    --border-color: #e1e4e8;
+    --card-background: #ffffff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar {
+    background-color: var(--card-background);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.logo {
+    display: inline-block;
+}
+
+.logo-image {
+    height: 40px;
+    width: auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.secure-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.github-login {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.github-login:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.github-login img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1);
+}
+
+.learn-more-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.learn-more-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--card-background);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(46, 164, 79, 0.1);
+}
+
+.learn-more-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(46, 164, 79, 0.2);
+}
+
+.learn-more-text {
+    margin-right: 8px;
+}
+
+.learn-more-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.learn-more-link:hover .learn-more-icon {
+    transform: translateX(5px);
+}
+
+.repositories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.repository-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.repository-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.repo-name {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.install-button {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+    align-self: flex-start;
+}
+
+.install-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.notification.success {
+    background-color: var(--primary-color);
+}
+
+.notification.error {
+    background-color: #d73a49;
+}
+
+.notification.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .repositories-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
