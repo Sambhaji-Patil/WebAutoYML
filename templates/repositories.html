@@ -15,7 +15,12 @@
         </div>
     </nav>
     <div class="container" style="margin-bottom: 25px;">
-        <h1>Your Repositories</h1>
+        <!-- Display User's Avatar and Name -->
+        <div class="user-info">
+            <img src="{{ user_avatar_url }}" alt="User Avatar" class="user-avatar">
+            <h1>{{ user_name }}'s Repositories</h1>
+        </div>
+
         <div class="repos-container">
             <div class="repos-list">
                 {% for repo in repos %}

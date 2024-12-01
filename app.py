@@ -170,17 +170,32 @@ def list_repositories():
         'Accept': 'application/vnd.github.v3+json'
     }
     
-    response = requests.get(
+    # Fetch user data (name and profile image)
+    user_response = requests.get(
+        'https://api.github.com/user',
+        headers=headers
+    )
+    
+    if user_response.status_code == 200:
+        user_data = user_response.json()
+        user_name = user_data['name'] or user_data['login']
+        user_avatar_url = user_data['avatar_url']
+    else:
+        return f"Error fetching user data: {user_response.text}", 500
+
+    # Fetch repositories
+    repos_response = requests.get(
         'https://api.github.com/user/repos',
         headers=headers
     )
     
-    if response.status_code == 200:
+    if repos_response.status_code == 200:
         repos = [{'name': repo['name'], 'full_name': repo['full_name']} 
-                for repo in response.json()]
-        return render_template('repositories.html', repos=repos)
+                 for repo in repos_response.json()]
+        return render_template('repositories.html', repos=repos, user_name=user_name, user_avatar_url=user_avatar_url)
     else:
-        return f"Error fetching repositories: {response.text}", 500
+        return f"Error fetching repositories: {repos_response.text}", 500
+
 
 def create_file(repo_full_name, path, content, headers, commit_message):
     """Create a file in the repository"""

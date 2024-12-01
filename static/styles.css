@@ -7,6 +7,21 @@
     --card-background: #ffffff;
 }
 
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.user-avatar {
+    margin-top: 5px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+
 #generate{
     background-color:#2ea44f;
     font-size: 15px;
