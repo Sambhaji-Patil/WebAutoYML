@@ -14,22 +14,40 @@
             </a>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" style="margin-bottom: 25px;">
         <h1>Your Repositories</h1>
-        <p>Select a repository to install the Spam Detection workflow:</p>
-        <div class="repositories-grid">
-            {% for repo in repos %}
-            <div class="repository-card">
-                <h3 class="repo-name">{{ repo.name }}</h3>
-                <button onclick="addWorkflow('{{ repo.full_name }}')" class="install-button">
-                    Install Workflow
-                </button>
+        <div class="repos-container">
+            <div class="repos-list">
+                {% for repo in repos %}
+                <div class="repo-card" onclick="showRepoDetails('{{ repo.full_name }}')">
+                    <h3 class="repo-name">{{ repo.name }}</h3>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+            <div class="repo-details" style="margin-left: 20px; padding-right: 10px;">
+                <h2 id="repo-name">Select a repository</h2>
+                <div id="repo-info">
+                    <p><strong>Status:</strong> <span style="background-color: #2ea44f9b; border-radius: 3px; padding: 2px;" id="feature-status">N/A</span></p>
+                    <label for="cron-options"><strong>Choose a Schedule:</strong></label>
+                    <select id="cron-options" onchange="updateForm()">
+                        <option value="">Select an option</option>
+                        <option value="hours">After how many hours</option>
+                        <option value="daily">At what time every day</option>
+                        <option value="weekly">At what time on what days</option>
+                        <option value="monthly">At what time on which day of every month</option>
+                    </select>
+                    <div style="width: 80%;" id="cron-form" class="cron-form"></div>
+                    <label for="cron-expression"><strong>Generated Cron Expression:</strong></label>
+                    <input style="width: 20%;" type="text" id="cron-expression" readonly>
+                    <div class="button-group">
+                        <button id="delete-btn" class="danger-button">Delete Workflow</button>
+                        <button id="add-update-btn" class="primary-button">Add</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div id="notification" class="notification hidden"></div>
     <script src="/static/script.js"></script>
 </body>
 </html>
-
